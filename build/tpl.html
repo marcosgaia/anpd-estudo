@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Questões – Concurso ANPD 2026</title>
+<style>
+:root{--b:#0b3d6b;--a:#12a37f;--l:#f3f7fb;--t:#1d2733;--w:#b45309;--r:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--l);line-height:1.5}
+header{background:linear-gradient(135deg,var(--b),#1565a8 60%,var(--a));color:#fff;padding:32px 20px;text-align:center}
+header h1{margin:0 0 6px;font-size:clamp(1.4rem,4vw,2.2rem)}header a{color:#fff}
+main{max-width:860px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0001}
+button,select,input{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid #c9d6e3}
+button{background:var(--b);color:#fff;border:0;cursor:pointer}button.sec{background:#e6eef6;color:var(--b)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{display:inline-block;font-size:.75rem;background:#e6f6f1;color:#0b6b52;padding:2px 8px;border-radius:99px}
+.alt{display:block;width:100%;text-align:left;margin:6px 0;background:#f7fafc;color:var(--t);border:1px solid #d5e0ea}
+.alt.ok{background:#dcfce7;border-color:#16a34a}.alt.no{background:#fee2e2;border-color:var(--r)}
+.com{margin-top:8px;padding:10px;border-left:4px solid var(--a);background:#f0fbf7;font-size:.92rem}
+#timer{font-weight:700;color:var(--w)}table{width:100%;border-collapse:collapse}td,th{padding:4px;border-bottom:1px solid #eee;text-align:left;font-size:.9rem}
+.nav{display:block;text-align:center;margin:10px}
+</style></head><body>
+<header><h1>Banco de Questões – ANPD 2026</h1><p>61 questões inéditas, com gabarito e comentário com o artigo de lei</p><p><a href="index.html">← Voltar ao guia de estudos</a></p></header>
+<main>
+<div class="card"><div class="ctl">
+<label>Matéria: <select id="mat"></select></label>
+<button onclick="estudo()">Modo estudo</button>
+<label>Simulado: <input id="n" type="number" min="1" value="20" style="width:70px"> questões</label>
+<label><input id="tm" type="checkbox"> cronômetro (3 min/questão)</label>
+<button onclick="simulado()">Iniciar simulado</button>
+<span id="timer"></span></div>
+<p style="font-size:.85rem;margin:8px 0 0">Material de estudo independente. Confira sempre a redação vigente das leis em planalto.gov.br.</p></div>
+<div class="card" id="placar"></div>
+<div id="lista"></div>
+<div class="card"><h3>Histórico</h3><div id="hist"></div><p><button class="sec" onclick="reset()">Apagar histórico</button></p></div>
+<a class="nav" href="index.html">← Voltar ao guia de estudos</a>
+</main>
+<script>
+const Q=__DATA__;const L='ABCDE';let cur=[],resp={},modo='',tid=null,fim=0;
+const mats=[...new Set(Q.map(q=>q.m))];
+mat.innerHTML='<option value="">Todas</option>'+mats.map(m=>`<option>${m}</option>`).join('');
+function pool(){return Q.filter(q=>!mat.value||q.m==mat.value)}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function estudo(){stop();modo='Estudo';cur=pool();resp={};render()}
+function simulado(){stop();modo='Simulado';const p=pool();cur=shuffle(p).slice(0,Math.max(1,Math.min(+n.value||20,p.length)));resp={};render();
+ if(tm.checked){fim=Date.now()+cur.length*180000;tid=setInterval(tick,1000);tick()}}
+function stop(){clearInterval(tid);tid=null;timer.textContent=''}
+function tick(){const s=Math.max(0,Math.round((fim-Date.now())/1000));timer.textContent='⏱ '+Math.floor(s/60)+':'+String(s%60).padStart(2,'0');if(!s){stop();alert('Tempo esgotado!');salvar()}}
+function render(){lista.innerHTML=cur.map((q,i)=>`<div class="card" id="q${q.id}"><span class="tag">${q.m}</span> <small>Q${q.id}</small><p><b>${i+1}.</b> ${q.e}</p>${q.a.map((a,j)=>`<button class="alt" onclick="r(${q.id},${j})">${L[j]}) ${a}</button>`).join('')}<div class="fb"></div></div>`).join('')+(cur.length?'<div class="card"><button onclick="salvar()">Finalizar e salvar no histórico</button></div>':'');placar_()}
+function r(id,j){if(id in resp)return;const q=Q.find(x=>x.id==id);resp[id]=j;const el=document.getElementById('q'+id),bs=el.querySelectorAll('.alt');
+ bs[q.c].classList.add('ok');if(j!=q.c)bs[j].classList.add('no');
+ el.querySelector('.fb').innerHTML=`<div class="com"><b>${j==q.c?'✔ Correta':'✘ Errada'} — Gabarito: ${L[q.c]}</b><br>${q.k}</div>`;placar_()}
+function stats(){const s={},t={a:0,n:0};for(const id in resp){const q=Q.find(x=>x.id==id);s[q.m]=s[q.m]||{a:0,n:0};s[q.m].n++;t.n++;if(resp[id]==q.c){s[q.m].a++;t.a++}}return{s,t}}
+const pc=(a,n)=>n?Math.round(100*a/n)+'%':'–';
+function placar_(){const{s,t}=stats();placar.innerHTML=`<b>${modo||'Escolha um modo acima'}</b>${modo?` · respondidas ${t.n}/${cur.length} · acertos ${t.a}/${t.n} (${pc(t.a,t.n)})`:''}`+(t.n?'<table>'+Object.entries(s).map(([m,v])=>`<tr><td>${m}</td><td>${v.a}/${v.n}</td><td>${pc(v.a,v.n)}</td></tr>`).join('')+'</table>':'')}
+function salvar(){stop();const{s,t}=stats();if(!t.n){alert('Responda ao menos uma questão.');return}
+ const h=JSON.parse(localStorage.getItem('anpdHist')||'[]');h.unshift({d:new Date().toLocaleString('pt-BR'),modo,mat:mat.value||'Todas',a:t.a,n:t.n,tot:cur.length,s});localStorage.setItem('anpdHist',JSON.stringify(h.slice(0,100)));hist_();alert(`Salvo: ${t.a}/${t.n} (${pc(t.a,t.n)})`)}
+function hist_(){const h=JSON.parse(localStorage.getItem('anpdHist')||'[]');hist.innerHTML=h.length?'<table><tr><th>Data</th><th>Modo</th><th>Matéria</th><th>Acertos</th><th>%</th></tr>'+h.map(x=>`<tr><td>${x.d}</td><td>${x.modo}</td><td>${x.mat}</td><td>${x.a}/${x.n} (de ${x.tot})</td><td>${pc(x.a,x.n)}</td></tr>`).join('')+'</table>':'<p>Nenhuma tentativa salva.</p>'}
+function reset(){if(confirm('Apagar todo o histórico?')){localStorage.removeItem('anpdHist');hist_()}}
+hist_();placar_();
+</script></body></html>
