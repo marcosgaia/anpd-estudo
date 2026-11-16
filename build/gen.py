@@ -4,8 +4,11 @@ import json, collections, html as h
 
 exec(open("q.py", encoding="utf-8").read())
 
-def esc(s):
-    return h.escape(s or "", quote=False)
+BAS = {"Direito Constitucional", "Direito Administrativo"}
+
+def fmt(s):
+    s = h.escape(s or "", quote=False)
+    return s.replace("[[pre]]", "<pre class='log'>").replace("[[/pre]]", "</pre>")
 
 out, gid, prev = [], 0, object()
 assert Q, "q.py precisa definir a lista Q"
@@ -17,14 +20,21 @@ for i, item in enumerate(Q):
     if t != prev:
         gid += 1
         prev = t
-    out.append({"id": i + 1, "m": esc(m), "t": esc(t), "e": esc(e), "c": c, "k": esc(k), "g": gid})
+    out.append({
+        "id": i + 1, "m": fmt(m), "t": fmt(t), "e": fmt(e), "c": c, "k": fmt(k),
+        "g": gid, "bl": "Básicos" if m in BAS else "Específicos",
+    })
 
 cont_m = collections.Counter(q["m"] for q in out)
 cont_c = collections.Counter(q["c"] for q in out)
-print(f"{len(out)} itens")
+cont_b = collections.Counter(q["bl"] for q in out)
+print(f"{len(out)} itens · {gid} textos")
 for m, n in cont_m.most_common():
     print(f"  {m}: {n}")
+print(f"blocos: {dict(cont_b)}")
 print(f"gabarito C={cont_c['C']} E={cont_c['E']}")
+assert len(out) >= 120
+assert abs(cont_c["C"] - cont_c["E"]) <= 4, "proporcao C/E deve ficar perto de 50/50"
 
 data = json.dumps(out, ensure_ascii=False, separators=(",", ":"))
 html = open("tpl.html", encoding="utf-8").read().replace("__DATA__", data)

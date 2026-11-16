@@ -22,7 +22,7 @@ button{background:var(--b);color:#fff;border:0;padding:8px 14px;border-radius:8p
 a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:#5b6b7b;font-size:.85rem}
 @media (max-width:420px){main{padding:12px}section{padding:16px;margin:14px 0}header{padding:32px 16px 28px}td,th{padding:6px}}
 </style></head><body>
-<header><h1>Concurso ANPD 2026</h1><p>Especialista em Regulação de Proteção de Dados · como estudar com eficiência, sem perder tempo</p><p><small style="color:#dfe">Atualizado em 16/11/2026</small></p><p style="margin-top:14px"><a href="questoes.html" style="display:inline-block;background:#fff;color:#0b3d6b;padding:10px 18px;border-radius:99px;font-weight:700;text-decoration:none">📝 Resolver 120 itens Certo/Errado no estilo Cebraspe →</a></p></header>
+<header><h1>Concurso ANPD 2026</h1><p>Especialista em Regulação de Proteção de Dados · como estudar com eficiência, sem perder tempo</p><p><small style="color:#dfe">Atualizado em 16/11/2026</small></p><p style="margin-top:14px"><a href="questoes.html" style="display:inline-block;background:#fff;color:#0b3d6b;padding:10px 18px;border-radius:99px;font-weight:700;text-decoration:none">📝 120 itens no estilo Cebraspe, com modo Prova real →</a></p></header>
 <nav><a href="#resumo">Resumo</a><a href="#ponto">Seu ponto de partida</a><a href="#estrategia">Estratégia</a><a href="#conteudo">Conteúdo provável</a><a href="#cebraspe">Cebraspe</a><a href="#plano">Plano semanal</a><a href="#edital">Quando sair o edital</a><a href="#fontes">Fontes</a></nav>
 <main>
 <section id="resumo"><h2>📋 Resumo do concurso (fatos verificados)</h2>
@@ -77,7 +77,7 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <ul>
 <li><b>Chute só com fundamento.</b> Se a chance real de acertar não passar claramente de 50%, o risco de anular um acerto é maior do que o ganho esperado. Deixe em branco.</li>
 <li><b>Leia o detalhe que vicia o item.</b> Um enunciado quase literal da lei vira “Errado” por um “sempre”, um prazo trocado (72 horas do GDPR no lugar de 3 dias úteis da Resolução CD/ANPD nº 15/2024) ou uma competência atribuída ao órgão errado.</li>
-<li><b>Treine a nota líquida.</b> No <a href="questoes.html">banco de 120 itens</a>, o simulado calcula certas − erradas, permite deixar em branco, tem cronômetro e guarda o histórico por matéria.</li>
+<li><b>Treine a nota líquida.</b> No <a href="questoes.html">banco de 120 itens inéditos</a> (21 textos-base densos, no nível de Especialista em Regulação), há modo estudo, simulado curto e o modo <b>Prova real</b>: caderno de prova + folha de respostas separados, 3 h 30 min, divisão em Conhecimentos Básicos (32) e Específicos (88), correção só no final e nota líquida por bloco. Os itens antigos do histórico continuam listados.</li>
 </ul>
 <p><small>Previsão do termo de referência (ainda não é edital): edital em 18/12/2026 e provas em 18/04/2027. Fonte da definição da banca: <a href="https://jcconcursos.com.br/noticia/concursos/concurso-anpd-definida-banca-organizadora-para-50-vagas-de-nivel-superior-146586">JC Concursos</a>.</small></p>
 </section>
@@ -105,7 +105,7 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 </ul></section>
 </main><footer>Material de estudo não oficial. Sempre confira o edital.</footer>
 <script>
-const T=["Seg: LGPD, lei seca + 20 itens Certo/Errado (2h)","Ter: Direito administrativo + itens C/E (2h)","Qua: Direito constitucional + itens C/E (2h)","Qui: Normas/resoluções da ANPD + Regulação (2h)","Sex: Português + Raciocínio lógico (2h)","Sáb: Segurança da informação e forense (1h) + revisão espaçada da semana (1h)","Sáb: Simulado Cebraspe (nota líquida = certas − erradas; em dúvida, em branco) + análise dos erros (2h)","Revisar flashcards (15 min/dia)"];
+const T=["Seg: LGPD, lei seca + 20 itens Certo/Errado (2h)","Ter: Direito administrativo + itens C/E (2h)","Qua: Direito constitucional + itens C/E (2h)","Qui: Normas/resoluções da ANPD + Regulação (2h)","Sex: Português + Raciocínio lógico (2h)","Sáb: Segurança da informação e forense (1h) + revisão espaçada da semana (1h)","Sáb: Prova real ou simulado Cebraspe (nota líquida = certas − erradas; em dúvida, em branco) + análise dos erros (3h30 ou 2h)","Revisar flashcards (15 min/dia)"];
 const K="anpd-chk",s=JSON.parse(localStorage.getItem(K)||"{}"),c=document.getElementById("chk");
 T.forEach((t,i)=>{c.insertAdjacentHTML("beforeend",`<label><input type="checkbox" data-i="${i}" ${s[i]?"checked":""}><span>${t}</span></label>`)});
 function up(){const n=Object.values(s).filter(Boolean).length,p=Math.round(n/T.length*100);prog.style.width=p+"%";ptxt.innerHTML=`<small>${n}/${T.length} concluídas (${p}%)</small>`}

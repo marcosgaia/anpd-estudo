@@ -2,11 +2,12 @@
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Questões – Concurso ANPD 2026</title>
 <style>
-:root{--b:#0b3d6b;--a:#12a37f;--l:#f3f7fb;--t:#1d2733;--w:#b45309;--r:#b91c1c}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--l);line-height:1.5}
+:root{--b:#0b3d6b;--a:#12a37f;--l:#f3f7fb;--t:#1d2733;--w:#b45309;--r:#b91c1c;--ink:#1a1a1a}
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--l);line-height:1.5}
 header{background:linear-gradient(135deg,var(--b),#1565a8 60%,var(--a));color:#fff;padding:32px 16px;text-align:center}
 header h1{margin:0 0 6px;font-size:clamp(1.25rem,4vw,2.2rem)}header p{margin:8px 0}header a{color:#fff}
 main{max-width:860px;margin:0 auto;padding:12px}
+body.prova main{max-width:980px}
 .card{background:#fff;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0001}
 button,select,input{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid #c9d6e3}
 button{background:var(--b);color:#fff;border:0;cursor:pointer}button.sec{background:#e6eef6;color:var(--b)}
@@ -14,7 +15,8 @@ button:disabled{opacity:.6;cursor:default}
 .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .tag{display:inline-block;font-size:.75rem;background:#e6f6f1;color:#0b6b52;padding:2px 8px;border-radius:99px}
 .aviso{background:#fffbeb;border:1px solid #f59e0b;border-radius:10px;padding:12px;font-size:.92rem;margin:8px 0 0}
-.base{background:#f3f7fb;border-left:4px solid var(--b);padding:12px 14px;margin:0 0 12px;border-radius:0 8px 8px 0}
+.base{background:#f3f7fb;border-left:4px solid var(--b);padding:12px 14px;margin:0 0 12px;border-radius:0 8px 8px 0;white-space:pre-wrap}
+pre.log,.caderno pre.log{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;white-space:pre;overflow-x:auto;background:#f3f0e4;padding:8px 10px;margin:8px 0;text-align:left;border:1px solid #e4dfcf}
 .item{padding:10px 0;border-top:1px dashed #e3e9f0}.item:first-of-type{border-top:0;padding-top:0}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
 .opts button{flex:1 1 96px;min-height:44px;background:#f7fafc;color:var(--t);border:1px solid #d5e0ea;font-weight:600}
@@ -24,68 +26,106 @@ button:disabled{opacity:.6;cursor:default}
 .opts button.gap{background:#f3f4f6;border-color:#9ca3af}
 .com{margin-top:8px;padding:10px;border-left:4px solid var(--a);background:#f0fbf7;font-size:.92rem}
 .com.bad{border-color:var(--r);background:#fef2f2}
-#timer{font-weight:700;color:var(--w);min-height:1.2em}
+#timer, #timerProva{font-weight:700;color:var(--w);min-height:1.2em;font-variant-numeric:tabular-nums}
 table{width:100%;border-collapse:collapse}td,th{padding:6px 4px;border-bottom:1px solid #eee;text-align:left;font-size:.9rem;vertical-align:top}
 .nav{display:block;text-align:center;margin:10px}
 #placar b{color:var(--b)}
 .liq{font-size:1.15rem}
+#estudos, #historicoBox{display:block}
+body.prova #estudos{display:none}
+
+/* Caderno e folha no estilo da prova */
+.pbar{position:sticky;top:0;z-index:20;background:#1a365d;color:#fff;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;margin:0 -12px 12px}
+.pbar button{background:#fff;color:#1a365d;font-weight:700;min-height:40px}
+.pbar button.on{outline:2px solid #f6e05e}
+.pbar .end{background:#9b2c2c;color:#fff}
+#timerProva{color:#fde68a}
+.caderno{background:#f7f4ea;color:var(--ink);font-family:"Liberation Serif","Times New Roman",Times,serif;font-size:1.02rem;line-height:1.55;text-align:justify;border:1px solid #c9c3b0;padding:24px 26px;margin:0 0 16px;box-shadow:0 1px 4px #0001}
+.caderno .chapeu{text-align:center;font-size:.82rem;letter-spacing:.04em;margin:0 0 10px;text-transform:uppercase}
+.caderno h2.sec{text-align:center;letter-spacing:.1em;font-size:1.05rem;margin:22px 0 12px;border-top:2px solid #222;border-bottom:2px solid #222;padding:8px 0}
+.caderno .instr{font-size:.9rem;border:1px solid #333;padding:12px 14px;margin:0 0 18px;text-align:left;background:#fff}
+.caderno .txt-label{font-weight:700;margin:1.1em 0 .4em;text-align:left}
+.caderno .base{background:#fff;border:1px solid #c9c3b0;border-radius:0;padding:14px 16px;white-space:pre-wrap;text-align:justify;font-family:inherit}
+.caderno .item{border:0;padding:0;margin:.9em 0 1em;text-align:justify}
+.caderno .item .num{font-weight:700}
+.caderno .ir{font-family:system-ui,sans-serif;font-size:.8rem;margin-left:6px}
+.folha{background:#fff;border:1px solid #c9c3b0;padding:16px}
+.folha h2{text-align:center;margin:0 0 6px;font-size:1.1rem}
+.folha .sub{text-align:center;font-size:.85rem;color:#444;margin:0 0 12px}
+.bloco-tit{background:#1a365d;color:#fff;padding:6px 10px;margin:14px 0 8px;font-size:.9rem;letter-spacing:.04em}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dotted #d5d0c4}
+.frow .n{width:2.6em;font-weight:700;font-variant-numeric:tabular-nums}
+.bub{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:2px solid #1a365d;background:#fff;color:#1a365d;font-weight:700;padding:0;min-width:44px}
+.bub[aria-pressed="true"]{background:#1a365d;color:#fff}
+.bub.ok{background:#166534;border-color:#166534;color:#fff}
+.bub.no{background:#991b1b;border-color:#991b1b;color:#fff}
+.bub.gap{background:#e5e7eb;border-color:#6b7280;color:#374151}
 @media (max-width:420px){
   main{padding:8px}.card{padding:12px;margin:10px 0}
   .opts button{flex:1 1 100%}
   table{font-size:.82rem}
+  .caderno{padding:14px 12px;font-size:.98rem}
+  .pbar{margin:0 -8px 10px}
+  .frow{gap:6px}
 }
 </style></head><body>
 <header>
   <h1>Banco de Questões – ANPD 2026</h1>
-  <p>120 itens inéditos no estilo Cebraspe (Certo/Errado), com gabarito e comentário citando o artigo de lei</p>
+  <p>120 itens inéditos no estilo Cebraspe (Certo/Errado), com textos-base densos, gabarito e comentário citando o artigo de lei</p>
   <p><a href="index.html">← Voltar ao guia de estudos</a></p>
 </header>
 <main>
-<div class="card">
+<div class="card" id="estudos">
   <div class="ctl">
     <label>Matéria: <select id="mat"></select></label>
     <button type="button" onclick="estudo()">Modo estudo</button>
     <label>Simulado: <input id="n" type="number" min="1" value="20" style="width:70px" aria-label="Quantidade de itens"> itens</label>
     <label><input id="tm" type="checkbox"> cronômetro (1 min 30 s por item)</label>
     <button type="button" onclick="simulado()">Iniciar simulado</button>
+    <button type="button" onclick="provaReal()">Iniciar Prova real</button>
     <span id="timer"></span>
   </div>
   <div class="aviso">
     <b>Regra Cebraspe:</b> nota líquida = certas − erradas. Item em branco vale zero e não anula acerto.
-    Chute só com segurança razoável; em dúvida, deixe em branco. Atenção a palavras como “sempre”, “somente”, “obrigatoriamente” e a trocas de prazo ou competência.
+    Na <b>Prova real</b>, o caderno e a folha de respostas ficam separados, a correção só ocorre no final e o tempo é de 3 h 30 min para 120 itens — proporcional à prova objetiva típica da banca (por exemplo, TCU 2025). Chute só com segurança razoável; em dúvida, deixe em branco. Atenção a “sempre”, “somente”, “obrigatoriamente”, prazos, exceções e trocas de competência.
   </div>
-  <p style="font-size:.85rem;margin:8px 0 0">Material de estudo independente, não oficial. Confira sempre a redação vigente das leis em planalto.gov.br e no site da ANPD.</p>
+  <p style="font-size:.85rem;margin:8px 0 0">Material de estudo independente, não oficial, em nível de Especialista em Regulação. Confira sempre a redação vigente das leis em planalto.gov.br e no site da ANPD.</p>
 </div>
 <div class="card" id="placar"></div>
+<div id="provaBox" hidden></div>
 <div id="lista"></div>
-<div class="card"><h3>Histórico</h3><p style="font-size:.85rem;margin-top:0">As tentativas antigas (múltipla escolha) continuam listadas abaixo, no formato original.</p><div id="hist"></div><p><button type="button" class="sec" onclick="resetHist()">Apagar histórico</button></p></div>
+<div class="card" id="historicoBox"><h3>Histórico</h3><p style="font-size:.85rem;margin-top:0">As tentativas antigas (múltipla escolha) continuam listadas abaixo, no formato original.</p><div id="hist"></div><p><button type="button" class="sec" onclick="resetHist()">Apagar histórico</button></p></div>
 <a class="nav" href="index.html">← Voltar ao guia de estudos</a>
 </main>
 <script>
 const Q=__DATA__;
 const HK='anpdHist';
-let cur=[],resp={},modo='',tid=null,fim=0,locked=false;
+let cur=[],resp={},modo='',tid=null,fim=0,locked=false,view='lista';
 const mats=[...new Set(Q.map(q=>q.m))];
 mat.innerHTML='<option value="">Todas</option>'+mats.map(m=>`<option>${m}</option>`).join('');
 
 function pool(){return Q.filter(q=>!mat.value||q.m===mat.value)}
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function findQ(id){return Q.find(x=>x.id===id)}
+function findQ(id){return Q.find(x=>x.id==id)}
 function groupsOf(list){
   const map=new Map(), order=[];
   for(const q of list){if(!map.has(q.g)){map.set(q.g,[]);order.push(q.g)}map.get(q.g).push(q)}
-  return order.map(g=>({g,t:map.get(g)[0].t,items:map.get(g)}));
+  return order.map(g=>({g,t:map.get(g)[0].t,items:map.get(g),bl:map.get(g)[0].bl}));
 }
-function stop(){clearInterval(tid);tid=null;timer.textContent=''}
+function clock(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function stop(){clearInterval(tid);tid=null;if(timer)timer.textContent='';const tp=document.getElementById('timerProva');if(tp)tp.textContent=''}
 function tick(){
   const s=Math.max(0,Math.round((fim-Date.now())/1000));
-  timer.textContent='⏱ '+Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
-  if(!s){stop();alert('Tempo esgotado! O simulado será encerrado; itens em branco permanecem em branco.');salvar(true)}
+  const txt='⏱ '+clock(s);
+  if(timer)timer.textContent=txt;
+  const tp=document.getElementById('timerProva'); if(tp) tp.textContent=txt;
+  if(!s){stop();alert('Tempo esgotado! O exame será encerrado; itens em branco permanecem em branco.');salvar(true)}
 }
+function sairProva(){document.body.classList.remove('prova');provaBox.hidden=true;view='lista'}
 
-function estudo(){stop();modo='Estudo';locked=false;cur=pool();resp={};render()}
+function estudo(){stop();sairProva();modo='Estudo';locked=false;cur=pool();resp={};render()}
 function simulado(){
-  stop();modo='Simulado';locked=false;
+  stop();sairProva();modo='Simulado';locked=false;
   const p=pool();
   if(!p.length){cur=[];resp={};render();return}
   const want=Math.max(1,Math.min(+(n.value)||20,p.length));
@@ -94,8 +134,18 @@ function simulado(){
   resp={};render();
   if(tm.checked){fim=Date.now()+cur.length*90000;tid=setInterval(tick,1000);tick()}
 }
+function provaReal(){
+  if(!confirm('Iniciar a Prova real?\n\nSão 120 itens (32 de Conhecimentos Básicos e 88 de Conhecimentos Específicos), com 3 horas e 30 minutos. A correção só ocorre no final. O cronômetro não pausa.\n\nUse o caderno para ler e a folha de respostas para marcar C ou E.'))return;
+  stop();modo='Prova real';locked=false;cur=Q.slice();resp={};view='caderno';
+  document.body.classList.add('prova');
+  lista.innerHTML='';
+  renderProva();
+  fim=Date.now()+210*60*1000;
+  tid=setInterval(tick,1000);tick();
+}
 
 function render(){
+  provaBox.hidden=true;
   if(!cur.length){lista.innerHTML='';placar_();return}
   let html='', i=0;
   for(const g of groupsOf(cur)){
@@ -120,82 +170,155 @@ function render(){
   placar_();
 }
 
+function renderProva(){
+  lista.innerHTML='';
+  provaBox.hidden=false;
+  const rec=Object.keys(resp).length;
+  provaBox.innerHTML=`<div class="pbar">
+    <span id="timerProva"></span>
+    <button type="button" class="${view==='caderno'?'on':''}" onclick="setView('caderno')">Caderno de prova</button>
+    <button type="button" class="${view==='folha'?'on':''}" onclick="setView('folha')">Folha de respostas</button>
+    <span style="flex:1"></span>
+    <span>${rec} marcados · ${cur.length-rec} em branco</span>
+    <button type="button" class="end" ${locked?'disabled':''} onclick="salvar(false)">Encerrar prova</button>
+  </div>
+  <div id="cadernoWrap" style="display:${view==='caderno'?'block':'none'}">${cadernoHTML()}</div>
+  <div id="folhaWrap" style="display:${view==='folha'?'block':'none'}">${folhaHTML()}</div>`;
+  if(tid&&fim) tick();
+  cur.forEach(q=>paint(q.id));
+  placar_();
+}
+function setView(v){view=v;renderProva();if(v==='folha'){const el=document.querySelector('.folha');if(el)el.scrollIntoView({block:'start'})}}
+
+function cadernoHTML(){
+  const instr=`<div class="instr"><p>• Cada um dos itens das provas objetivas está vinculado ao comando que imediatamente o antecede. De acordo com o comando a que cada um deles esteja vinculado, marque, na Folha de Respostas, para cada item: o campo designado com o código C, caso julgue o item CERTO; ou o campo designado com o código E, caso julgue o item ERRADO. A ausência de marcação ou a marcação de ambos os campos não serão apenadas, ou seja, não receberão pontuação negativa. Para as devidas marcações, use a Folha de Respostas, único documento válido para a correção das suas provas objetivas neste modo.</p>
+  <p>• Esta é uma simulação inédita, no formato Cebraspe, para treino do concurso da ANPD. Não reproduz caderno oficial. Tempo: 3 horas e 30 minutos para 120 itens, proporcional à prova objetiva típica da banca em concursos de nível superior (por exemplo, TCU 2025). A correção ocorre somente ao término.</p></div>`;
+  let html=`<div class="caderno"><div class="chapeu">Concurso público · ANPD · Especialista em Regulação de Proteção de Dados<br>Provas objetivas — simulação no Método Cespe/Cebraspe</div>${instr}`;
+  let lastBl='', i=0, tn=0, lastG=-1;
+  for(const q of cur){
+    if(q.bl!==lastBl){
+      lastBl=q.bl;
+      const faixa=q.bl==='Básicos'?'Conhecimentos Básicos — Direito Constitucional e Direito Administrativo (itens 1 a 32)':'Conhecimentos Específicos — LGPD, ANPD e Regulação, Segurança da Informação (itens 33 a 120)';
+      html+=`<h2 class="sec">${faixa}</h2>`;
+    }
+    if(q.g!==lastG){
+      lastG=q.g; tn++;
+      html+=`<div class="txt-label">Texto ${tn}</div><div class="base">${q.t}</div>`;
+    }
+    i++;
+    html+=`<div class="item" id="q${q.id}"><span class="num">${i}.</span> ${q.e} <button type="button" class="sec ir" onclick="irFolha(${q.id})">marcar na folha</button><div class="fb"></div></div>`;
+  }
+  html+=`</div>`;
+  return html;
+}
+function folhaHTML(){
+  let html=`<div class="folha"><h2>Folha de Respostas</h2><p class="sub">Marque um, e somente um, dos campos C ou E. Sem marcação, o item permanece em branco e não é apenado. ${locked?'Prova encerrada.':'A correção será divulgada ao encerrar.'}</p>`;
+  let lastBl='';
+  cur.forEach((q,i)=>{
+    if(q.bl!==lastBl){lastBl=q.bl;html+=`<div class="bloco-tit">${q.bl==='Básicos'?'P1 — Conhecimentos Básicos':'P2 — Conhecimentos Específicos'}</div>`}
+    html+=`<div class="frow" id="f${q.id}"><span class="n">${i+1}</span>
+      <button type="button" class="bub" data-v="C" onclick="mark(${q.id},'C')" aria-label="Item ${i+1} Certo">C</button>
+      <button type="button" class="bub" data-v="E" onclick="mark(${q.id},'E')" aria-label="Item ${i+1} Errado">E</button>
+    </div>`;
+  });
+  html+=`</div>`;
+  return html;
+}
+function irFolha(id){view='folha';renderProva();const el=document.getElementById('f'+id);if(el)el.scrollIntoView({block:'center'})}
+
 function mark(id,val){
   if(locked)return;
   if(modo==='Estudo' && Object.prototype.hasOwnProperty.call(resp,id))return;
   if(val===null) delete resp[id]; else resp[id]=val;
   paint(id);placar_();
+  if(modo==='Prova real'&&!locked){
+    const rec=Object.keys(resp).length;
+    const bar=document.querySelector('.pbar span:nth-of-type(2)')||document.querySelector('.pbar span:not(#timerProva)');
+    const spans=[...document.querySelectorAll('.pbar span')];
+    const info=spans.find(s=>s.id!=='timerProva' && s.textContent.includes('marcados'));
+    if(info) info.textContent=`${rec} marcados · ${cur.length-rec} em branco`;
+  }
 }
 
 function paint(id){
-  const el=document.getElementById('q'+id); if(!el)return;
   const q=findQ(id), chosen=resp[id], show=locked||(modo==='Estudo'&&chosen);
-  el.querySelectorAll('.opts button').forEach(b=>{
-    const v=b.getAttribute('data-v');
-    b.classList.remove('ok','no','gap');
-    b.setAttribute('aria-pressed', (v===''?!chosen:chosen===v)?'true':'false');
-    if(show){
-      if(v===q.c) b.classList.add('ok');
-      else if(chosen&&v===chosen) b.classList.add('no');
-      else if(!chosen&&v==='') b.classList.add('gap');
+  const els=[document.getElementById('q'+id), document.getElementById('f'+id)].filter(Boolean);
+  for(const el of els){
+    el.querySelectorAll('button[data-v]').forEach(b=>{
+      const v=b.getAttribute('data-v');
+      b.classList.remove('ok','no','gap');
+      b.setAttribute('aria-pressed', (v===''?!chosen:chosen===v)?'true':'false');
+      if(show){
+        if(v===q.c) b.classList.add('ok');
+        else if(chosen&&v===chosen) b.classList.add('no');
+        else if(!chosen&&v==='') b.classList.add('gap');
+      }
+    });
+    const fb=el.querySelector('.fb');
+    if(fb){
+      if(show){
+        const ok=chosen===q.c, blank=!chosen;
+        const tit=blank?'○ Em branco — não pontua nem anula':(ok?'✔ Certo — você acertou o gabarito':'✘ Errado — uma errada anula uma certa');
+        fb.innerHTML=`<div class="com ${ok||blank?'':'bad'}"><b>${tit} · Gabarito: ${q.c==='C'?'Certo':'Errado'}</b><br>${q.k}</div>`;
+      }else fb.innerHTML='';
     }
-  });
-  const fb=el.querySelector('.fb');
-  if(show){
-    const ok=chosen===q.c, blank=!chosen;
-    const tit=blank?'○ Em branco — não pontua nem anula':(ok?'✔ Certo — você acertou o gabarito':'✘ Errado — uma errada anula uma certa');
-    fb.innerHTML=`<div class="com ${ok||blank?'':'bad'}"><b>${tit} · Gabarito: ${q.c==='C'?'Certo':'Errado'}</b><br>${q.k}</div>`;
-  }else fb.innerHTML='';
+  }
 }
 
 function stats(){
   const s={}, t={a:0,e:0,b:0,n:0,liq:0};
+  const B={a:0,e:0,b:0,n:0,liq:0,tot:0}, E={a:0,e:0,b:0,n:0,liq:0,tot:0};
   for(const q of cur){
     s[q.m]=s[q.m]||{a:0,e:0,b:0,n:0,liq:0};
+    const bloco=q.bl==='Básicos'?B:E;
+    bloco.tot++;
     const v=resp[q.id];
-    if(v===q.c){s[q.m].a++;t.a++;s[q.m].n++;t.n++}
-    else if(v){s[q.m].e++;t.e++;s[q.m].n++;t.n++}
-    else{s[q.m].b++;t.b++}
+    if(v===q.c){s[q.m].a++;t.a++;s[q.m].n++;t.n++;bloco.a++;bloco.n++}
+    else if(v){s[q.m].e++;t.e++;s[q.m].n++;t.n++;bloco.e++;bloco.n++}
+    else{s[q.m].b++;t.b++;bloco.b++}
   }
-  for(const m in s){s[m].liq=s[m].a-s[m].e}
-  t.liq=t.a-t.e;
-  return{s,t};
+  for(const m in s) s[m].liq=s[m].a-s[m].e;
+  t.liq=t.a-t.e; B.liq=B.a-B.e; E.liq=E.a-E.e;
+  return{s,t,B,E};
 }
-
 function tab(s){
   return '<table><tr><th>Matéria</th><th>Certas</th><th>Erradas</th><th>Em branco</th><th>Líquida</th></tr>'
     +Object.entries(s).map(([m,v])=>`<tr><td>${m}</td><td>${v.a}</td><td>${v.e}</td><td>${v.b}</td><td>${v.liq}</td></tr>`).join('')
     +'</table>';
 }
-
 function placar_(){
   if(!modo){placar.innerHTML='<b>Escolha um modo acima</b>';return}
-  const{s,t}=stats(), tot=cur.length, rec=t.a+t.e;
-  if(modo==='Simulado'&&!locked){
-    placar.innerHTML=`<b>Simulado</b> · respondidos ${rec}/${tot} · em branco ${t.b}. A nota líquida aparece ao finalizar.`;
+  const{s,t,B,E}=stats(), tot=cur.length, rec=t.a+t.e;
+  if(!locked && (modo==='Simulado'||modo==='Prova real')){
+    placar.innerHTML=`<b>${modo}</b> · respondidos ${rec}/${tot} · em branco ${t.b}. A nota líquida aparece ao finalizar.`;
     return;
   }
-  placar.innerHTML=`<b>${modo}</b> · <span class="liq">nota líquida ${t.liq}</span> (${t.a} certas − ${t.e} erradas, ${t.b} em branco, de ${tot} itens)`+(tot?tab(s):'');
+  let extra='';
+  if(modo==='Prova real') extra=`<p>Conhecimentos Básicos: <b>${B.liq}</b> (${B.a}C − ${B.e}E, ${B.b} em branco, de ${B.tot}) · Conhecimentos Específicos: <b>${E.liq}</b> (${E.a}C − ${E.e}E, ${E.b} em branco, de ${E.tot})</p>`;
+  placar.innerHTML=`<b>${modo}</b> · <span class="liq">nota líquida ${t.liq}</span> (${t.a} certas − ${t.e} erradas, ${t.b} em branco, de ${tot} itens)`+extra+(tot?tab(s):'');
 }
 
 function salvar(auto){
   if(!cur.length)return;
   if(locked)return;
-  const{s,t}=stats();
-  if(!auto&&!(t.a+t.e)&&!confirm('Nenhum item foi julgado. Salvar o simulado todo em branco (nota líquida 0)?'))return;
+  const{s,t,B,E}=stats();
+  if(!auto&&!(t.a+t.e)&&!confirm('Nenhum item foi julgado. Salvar o exame todo em branco (nota líquida 0)?'))return;
   stop();locked=true;
+  if(modo==='Prova real') renderProva();
   cur.forEach(q=>paint(q.id));
   placar_();
   const btn=document.getElementById('btnFim'); if(btn) btn.disabled=true;
-  const row={d:new Date().toLocaleString('pt-BR'),modo,mat:mat.value||'Todas',a:t.a,n:t.a+t.e,tot:cur.length,e:t.e,b:t.b,liq:t.liq,s};
+  const row={d:new Date().toLocaleString('pt-BR'),modo,mat:mat.value||'Todas',a:t.a,n:t.a+t.e,tot:cur.length,e:t.e,b:t.b,liq:t.liq,s,bb:B,be:E};
   const h=JSON.parse(localStorage.getItem(HK)||'[]');
   h.unshift(row);
   localStorage.setItem(HK,JSON.stringify(h.slice(0,100)));
   hist_();
-  alert(`Salvo: nota líquida ${t.liq} (${t.a} certas − ${t.e} erradas, ${t.b} em branco)`);
+  const extra=modo==='Prova real'?` · Básicos ${B.liq} · Específicos ${E.liq}`:'';
+  alert(`Salvo: nota líquida ${t.liq} (${t.a} certas − ${t.e} erradas, ${t.b} em branco)${extra}`);
 }
 
 function det(x){
+  if(x.modo==='Prova real'&&x.bb) return `${x.liq} (Básicos ${x.bb.liq} · Específicos ${x.be.liq}; ${x.a}C − ${x.e||0}E, ${x.b||0} em branco)`;
   if('liq' in x) return `${x.liq} (${x.a}C − ${x.e||0}E, ${x.b||0} em branco)`;
   return `${x.a}/${x.n} (de ${x.tot}) · formato anterior`;
 }
