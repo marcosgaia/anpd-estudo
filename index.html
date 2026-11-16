@@ -3,26 +3,27 @@
 <title>Concurso ANPD 2026 – Como estudar sem perder tempo</title>
 <style>
 :root{--b:#0b3d6b;--a:#12a37f;--l:#f3f7fb;--t:#1d2733;--w:#b45309}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--l);line-height:1.6}
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);background:var(--l);line-height:1.6}
 header{background:linear-gradient(135deg,var(--b),#1565a8 60%,var(--a));color:#fff;padding:48px 20px 40px;text-align:center}
 header h1{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.5rem)}header p{margin:0;opacity:.9}
-nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 8px #0001;display:flex;gap:4px;overflow-x:auto;padding:8px;z-index:9}
+nav{position:sticky;top:0;background:#fff;box-shadow:0 2px 8px #0001;display:flex;gap:4px;overflow-x:auto;padding:8px;z-index:9;max-width:100%}
 nav a{white-space:nowrap;color:var(--b);text-decoration:none;padding:6px 12px;border-radius:20px;font-size:.9rem}nav a:hover{background:var(--l)}
 main{max-width:960px;margin:auto;padding:20px}
-section{background:#fff;border-radius:14px;padding:24px;margin:20px 0;box-shadow:0 2px 12px #0b3d6b14}
-h2{color:var(--b);margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+section{background:#fff;border-radius:14px;padding:24px;margin:20px 0;box-shadow:0 2px 12px #0b3d6b14;overflow-x:auto}
+h2{color:var(--b);margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px}
 .card{background:var(--l);border-radius:10px;padding:14px;border-left:4px solid var(--a)}.card b{display:block;color:var(--b)}
 .tag{display:inline-block;background:#fef3c7;color:var(--w);font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:10px}
 .prev{border:2px dashed var(--w);background:#fffbeb}
-table{width:100%;border-collapse:collapse;font-size:.92rem}td,th{padding:8px;border-bottom:1px solid #e3e9f0;text-align:left;vertical-align:top}th{background:var(--l)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}td,th{padding:8px;border-bottom:1px solid #e3e9f0;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:var(--l)}
 .chk label{display:flex;gap:10px;padding:8px;border-radius:8px;cursor:pointer}.chk label:hover{background:var(--l)}.chk input{width:18px;height:18px;accent-color:var(--a)}
 .chk input:checked+span{text-decoration:line-through;opacity:.6}
 .bar{height:12px;background:#e3e9f0;border-radius:6px;overflow:hidden;margin:8px 0}.bar div{height:100%;background:var(--a);transition:width .3s}
 button{background:var(--b);color:#fff;border:0;padding:8px 14px;border-radius:8px;cursor:pointer}
 a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:#5b6b7b;font-size:.85rem}
+@media (max-width:420px){main{padding:12px}section{padding:16px;margin:14px 0}header{padding:32px 16px 28px}td,th{padding:6px}}
 </style></head><body>
-<header><h1>Concurso ANPD 2026</h1><p>Especialista em Regulação de Proteção de Dados · como estudar com eficiência, sem perder tempo</p><p><small style="color:#dfe">Atualizado em 12/10/2026</small></p><p style="margin-top:14px"><a href="questoes.html" style="display:inline-block;background:#fff;color:#0b3d6b;padding:10px 18px;border-radius:99px;font-weight:700;text-decoration:none">📝 Resolver 61 questões com gabarito comentado →</a></p></header>
-<nav><a href="#resumo">Resumo</a><a href="#ponto">Seu ponto de partida</a><a href="#estrategia">Estratégia</a><a href="#conteudo">Conteúdo provável</a><a href="#plano">Plano semanal</a><a href="#edital">Quando sair o edital</a><a href="#fontes">Fontes</a></nav>
+<header><h1>Concurso ANPD 2026</h1><p>Especialista em Regulação de Proteção de Dados · como estudar com eficiência, sem perder tempo</p><p><small style="color:#dfe">Atualizado em 16/11/2026</small></p><p style="margin-top:14px"><a href="questoes.html" style="display:inline-block;background:#fff;color:#0b3d6b;padding:10px 18px;border-radius:99px;font-weight:700;text-decoration:none">📝 Resolver 120 itens Certo/Errado no estilo Cebraspe →</a></p></header>
+<nav><a href="#resumo">Resumo</a><a href="#ponto">Seu ponto de partida</a><a href="#estrategia">Estratégia</a><a href="#conteudo">Conteúdo provável</a><a href="#cebraspe">Cebraspe</a><a href="#plano">Plano semanal</a><a href="#edital">Quando sair o edital</a><a href="#fontes">Fontes</a></nav>
 <main>
 <section id="resumo"><h2>📋 Resumo do concurso (fatos verificados)</h2>
 <div class="grid">
@@ -37,7 +38,7 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <div class="card"><b>Lotação</b>Prevista em Brasília/DF (ANPD só tem sede lá), segundo a ANPD; sem previsão para RJ <span class="tag">confirmar no edital</span></div>
 </div>
 <p><small>Fontes: <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/copy_of_primeiro-concurso-publico-para-carreira-propria-da-anpd-e-autorizado">ANPD (notícia oficial, 24/06/2026)</a> · <a href="https://www.aprovaconcursos.com.br/noticias/banca-anpd/">Aprova Concursos</a> · <a href="https://blog.grancursosonline.com.br/concurso-anpd-banca-deve-ser-contratada-ate-dezembro/">Gran Cursos</a> · <a href="https://folha.qconcursos.com/n/concurso-anpd-2026-entrevista">Folha Dirigida (entrevista com a superintendente)</a>.</small></p>
-<p><span class="tag">A confirmar no edital</span> banca, taxa, datas, cidades de prova, conteúdo programático, provas discursivas, formações aceitas, cadastro de reserva. A Lei 15.352/2026 prevê curso de formação (segundo <a href="https://noticiasconcursos.com.br/concurso-anpd-com-50-vagas-para-nivel-superior-confira-o-que-esperar-da-prova/">Notícias Concursos</a>; confirmar no edital).</p></section>
+<p><span class="tag">A confirmar no edital</span> taxa, datas oficiais (as de 18/12/2026 e 18/04/2027 ainda são previsão do termo de referência), cidades de prova, conteúdo programático, provas discursivas, formações aceitas e cadastro de reserva. A banca Cebraspe foi definida em 15/11/2026 no PNCP, com contrato ainda a assinar. A Lei 15.352/2026 prevê curso de formação (segundo <a href="https://noticiasconcursos.com.br/concurso-anpd-com-50-vagas-para-nivel-superior-confira-o-que-esperar-da-prova/">Notícias Concursos</a>; confirmar no edital).</p></section>
 
 <section id="ponto"><h2>🎯 Seu ponto de partida</h2>
 <p>Com pós-graduação em <b>perícia forense</b>, você já tem vantagem em temas técnicos. Aproveite isso e concentre energia nas lacunas prováveis.</p>
@@ -51,10 +52,11 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <div class="grid">
 <div class="card"><b>1. Comece antes do edital</b>Estude a base comum (português, constitucional, administrativo, LGPD). Ela quase sempre cai; o edital só ajusta.</div>
 <div class="card"><b>2. Ciclo, não cronograma fixo</b>Faça uma lista de matérias em sequência e estude a próxima sempre que tiver tempo. Um dia perdido não desmonta o plano.</div>
-<div class="card"><b>3. Questões desde o início</b>Teoria curta + muitas questões. Erros viram caderno de revisão.</div>
+<div class="card"><b>3. Itens Certo/Errado desde o início</b>Teoria curta + muitos itens no estilo Cebraspe. Cada erro vira caderno de revisão, com o artigo da lei ao lado.</div>
 <div class="card"><b>4. Revisão espaçada</b>Revise em 1, 7 e 30 dias. Use flashcards para prazos e artigos da LGPD.</div>
 <div class="card"><b>5. Pareto (80/20)</b>Foque nos ~20% dos tópicos que mais caem: princípios, bases legais, direitos do titular, agentes de tratamento, sanções, segurança e incidentes.</div>
-<div class="card"><b>6. Lei seca</b>Leia a LGPD inteira várias vezes. Ela é curta e a cobrança literal é comum.</div>
+<div class="card"><b>6. Lei seca</b>Leia a LGPD inteira várias vezes. Ela é curta e a cobrança literal é comum na Cebraspe.</div>
+<div class="card" style="border-color:var(--w)"><b>7. Estratégia Cebraspe: quando chutar e quando deixar em branco</b>A nota líquida é certas menos erradas; item em branco vale zero e não anula acerto. Chutar ao acaso tem esperança zero, mas um erro cancela um acerto já conquistado. Só marque Certo ou Errado com segurança razoável (fundamento na lei, não no “achismo”). Em dúvida, deixe em branco. Desconfie de palavras como “sempre”, “somente”, “apenas”, “jamais”, “obrigatoriamente”, “vedado”, “exclusivamente” e “em qualquer hipótese”: a banca troca competência, prazo ou exceção e transforma um enunciado quase certo em item errado. Leia o texto-base e o comando antes de julgar o item.</div>
 </div></section>
 
 <section id="conteudo" class="prev"><h2>📚 Provável conteúdo <span class="tag">PREVISÃO, não é edital</span></h2>
@@ -70,6 +72,15 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <tr><td>Raciocínio lógico</td><td>Proposições, argumentação, análise combinatória, probabilidade</td><td>🔥</td></tr>
 </table></section>
 
+<section id="cebraspe"><h2>📐 Como a Cebraspe cobra (e como não perder ponto)</h2>
+<p>A banca do concurso foi definida: <b>Cebraspe</b> (15/11/2026 no PNCP; contrato ainda a assinar). Em provas de Especialista em Regulação de agências, o padrão é o Método Cespe: itens para julgamento <b>Certo</b> ou <b>Errado</b>, muitas vezes com um texto-base seguido de vários itens. A pontuação de cada item é +1 se estiver de acordo com o gabarito, −1 se estiver em desacordo e 0 se ficar em branco (ou com marcação dupla, na folha oficial).</p>
+<ul>
+<li><b>Chute só com fundamento.</b> Se a chance real de acertar não passar claramente de 50%, o risco de anular um acerto é maior do que o ganho esperado. Deixe em branco.</li>
+<li><b>Leia o detalhe que vicia o item.</b> Um enunciado quase literal da lei vira “Errado” por um “sempre”, um prazo trocado (72 horas do GDPR no lugar de 3 dias úteis da Resolução CD/ANPD nº 15/2024) ou uma competência atribuída ao órgão errado.</li>
+<li><b>Treine a nota líquida.</b> No <a href="questoes.html">banco de 120 itens</a>, o simulado calcula certas − erradas, permite deixar em branco, tem cronômetro e guarda o histórico por matéria.</li>
+</ul>
+<p><small>Previsão do termo de referência (ainda não é edital): edital em 18/12/2026 e provas em 18/04/2027. Fonte da definição da banca: <a href="https://jcconcursos.com.br/noticia/concursos/concurso-anpd-definida-banca-organizadora-para-50-vagas-de-nivel-superior-146586">JC Concursos</a>.</small></p>
+</section>
 <section id="plano"><h2>🗓️ Plano semanal para quem trabalha (12h/semana)</h2>
 <p>2h por dia útil + 4h no sábado; domingo livre ou reserva. Seu progresso fica salvo neste navegador.</p>
 <div class="bar"><div id="prog" style="width:0"></div></div><p id="ptxt"><small>0%</small></p>
@@ -78,7 +89,7 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <section id="edital"><h2>🚀 Quando o edital sair</h2>
 <ol><li><b>Dia 1:</b> leia o edital inteiro. Anote banca, datas, pesos, discursiva, formação exigida e cidades de prova.</li>
 <li><b>Verticalize:</b> transforme o conteúdo programático em checklist e marque o que você já domina.</li>
-<li><b>Estude a banca:</b> resolva provas anteriores dela em agências reguladoras.</li>
+<li><b>Estude a banca:</b> resolva provas anteriores da Cebraspe em agências reguladoras (ANATEL, ANEEL, ANS, ANVISA, ANTT etc.), no estilo Certo/Errado, treinando a nota líquida e a decisão de deixar em branco.</li>
 <li><b>Redistribua o ciclo pelos pesos</b> e corte o que não está no edital.</li>
 <li><b>Discursiva:</b> se houver, faça 1–2 redações por semana com correção.</li>
 <li><b>Reta final (últimas 2–3 semanas):</b> só revisão, lei seca e simulados cronometrados.</li>
@@ -89,10 +100,12 @@ a{color:#1565a8}small{color:#5b6b7b}footer{text-align:center;padding:30px;color:
 <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD, Lei 13.709/2018 (Planalto)</a></li>
 <li><a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/copy_of_primeiro-concurso-publico-para-carreira-propria-da-anpd-e-autorizado">Notícia oficial da autorização do concurso</a></li>
 <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13848.htm">Lei 13.848/2019 (agências reguladoras)</a></li>
+<li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/l15352.htm">Lei 15.352/2026 (ANPD como agência e carreira)</a></li>
+<li><a href="https://jcconcursos.com.br/noticia/concursos/concurso-anpd-definida-banca-organizadora-para-50-vagas-de-nivel-superior-146586">Definição da banca Cebraspe (PNCP, 15/11/2026) — JC Concursos</a></li>
 </ul></section>
 </main><footer>Material de estudo não oficial. Sempre confira o edital.</footer>
 <script>
-const T=["Seg: LGPD, lei seca + 20 questões (2h)","Ter: Direito administrativo + questões (2h)","Qua: Direito constitucional + questões (2h)","Qui: Normas/resoluções da ANPD + Regulação (2h)","Sex: Português + Raciocínio lógico (2h)","Sáb: Segurança da informação (1h) + revisão espaçada da semana (1h)","Sáb: Simulado / bloco de 40 questões mistas + análise dos erros (2h)","Revisar flashcards (15 min/dia)"];
+const T=["Seg: LGPD, lei seca + 20 itens Certo/Errado (2h)","Ter: Direito administrativo + itens C/E (2h)","Qua: Direito constitucional + itens C/E (2h)","Qui: Normas/resoluções da ANPD + Regulação (2h)","Sex: Português + Raciocínio lógico (2h)","Sáb: Segurança da informação e forense (1h) + revisão espaçada da semana (1h)","Sáb: Simulado Cebraspe (nota líquida = certas − erradas; em dúvida, em branco) + análise dos erros (2h)","Revisar flashcards (15 min/dia)"];
 const K="anpd-chk",s=JSON.parse(localStorage.getItem(K)||"{}"),c=document.getElementById("chk");
 T.forEach((t,i)=>{c.insertAdjacentHTML("beforeend",`<label><input type="checkbox" data-i="${i}" ${s[i]?"checked":""}><span>${t}</span></label>`)});
 function up(){const n=Object.values(s).filter(Boolean).length,p=Math.round(n/T.length*100);prog.style.width=p+"%";ptxt.innerHTML=`<small>${n}/${T.length} concluídas (${p}%)</small>`}
